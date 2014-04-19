@@ -1,4 +1,3 @@
-gitbook-plugin-mixpanel
-=======================
+Mixpanel tracking for GitBook
+==============
 
-Mixpanel tracking for your book
