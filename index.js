@@ -1,7 +1,8 @@
 module.exports = {
     book: {
+        assets: "./book",
         js: [
-            "book/plugin.js"
+            "plugin.js"
         ]
     }
 };
