@@ -2,7 +2,7 @@
 for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
 
 
-$(document).bind("bookReady", function() {
+require(["gitbook"], function(gitbook) {
     var isAvailable = function() {
         return (
             typeof mixpanel !== "undefined" &&
@@ -28,17 +28,18 @@ $(document).bind("bookReady", function() {
         mixpanel.track(e, data);
     };
 
-    setTimeout(function() {
-        mixpanel.init("01eb2b950ae09a5fdb15a98dcc5ff20e");
+    gitbook.events.bind("start", function(e, config) {
+        config.mixpanel = config.mixpanel || {};
+
+        mixpanel.init(config.mixpanel.token || "01eb2b950ae09a5fdb15a98dcc5ff20e");
         track("page.start");
-    }, 0);
+    });
 
-
-    gitbook.bind("page.change", function() {
+    gitbook.events.bind("page.change", function() {
         track("page.change");
     });
 
-    gitbook.bind("exercise.submit", function(e, data) {
+    gitbook.events.bind("exercise.submit", function(e, data) {
         track("exercise.submit", data);
     });
 });
