@@ -14,7 +14,7 @@ Or you can set your own mixpanel token using the plugins configuration in book.j
 
 ```
 {
-    plugins: ["ga"],
+    plugins: ["mixpanel"],
     pluginsConfig: {
         "mixpanel": {
             "token": "my mixpanel token"
