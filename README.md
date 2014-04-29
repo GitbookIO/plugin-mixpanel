@@ -1,12 +1,24 @@
 Mixpanel tracking for GitBook
 ==============
 
-You can set the mixpanel token using the plugins configuration (command line option: `--pluginsConfig`) with the following content:
+This is a default GitBook plugin, You can disable it using:
 
 ```
 {
-    "mixpanel": {
-        "token": "my mixpanel token"
+    plugins: ["-mathjax"]
+}
+```
+
+
+Or you can set your own mixpanel token using the plugins configuration in book.json:
+
+```
+{
+    plugins: ["ga"],
+    pluginsConfig: {
+        "mixpanel": {
+            "token": "my mixpanel token"
+        }
     }
 }
 ```
