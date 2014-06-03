@@ -31,7 +31,7 @@ require(["gitbook"], function(gitbook) {
     gitbook.events.bind("start", function(e, config) {
         config.mixpanel = config.mixpanel || {};
 
-        mixpanel.init(config.mixpanel.token || "01eb2b950ae09a5fdb15a98dcc5ff20e");
+        mixpanel.init(config.mixpanel.token);
         track("page.start");
     });
 
